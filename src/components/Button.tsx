@@ -30,6 +30,7 @@ const NewIssueButton = styled.TouchableOpacity`
   align-items: center;
   border-width: 3px;
   border-color: ${Colors.white};
+  margin-bottom: 30px;
 `;
 
 const ButtonText = styled.Text`

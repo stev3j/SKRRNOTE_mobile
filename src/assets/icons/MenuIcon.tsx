@@ -11,4 +11,8 @@ const MenuIcon = () => {
   return <SvgXml xml={menuIconSvg} width="25" height="25" />;
 };
 
+export const MenuIcon20 = () => {
+  return <SvgXml xml={menuIconSvg} width="20" height="20" />;
+};
+
 export default MenuIcon;

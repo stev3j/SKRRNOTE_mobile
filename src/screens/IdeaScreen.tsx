@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import IdeaCard from '../components/IdeaCard';
@@ -8,21 +8,27 @@ import RootStackParamList from '../navigation/RootStackParamList';
 import { ButtonContainer } from '../utils/ETCViews';
 import Button from '../components/Button';
 import { penIconSvg } from '../assets/icons/PenIcon';
+import { createIdea, getIdeas, getProblems } from '../database/Functions';
+import IdeaList from '../components/IdeaList';
+import Idea from '../database/models/Idea';
 
 const IdeaScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const [ideas, setIdeas] = useState<any>(getIdeas());
+
+  useEffect(() => {
+    console.log(ideas)
+  }, ideas)
 
   return (
     <Container>
-      <ScrollView>
-        <IdeaCard title='아이디어 1' content='아이디어 내용 1' />
-        <IdeaCard title='아이디어 2' content='아이디어 내용 2' />
-        <IdeaCard title='아이디어 3' content='아이디어 내용 3' />
-      </ScrollView>
+      <IdeaList ideas={ideas} setIdeas={setIdeas}/>
 
-       <ButtonContainer>
+      <ButtonContainer>
         <Button text='새로운 아이디어' icon={penIconSvg} onPress={() => {
-          navigation.navigate('IdeaDetail')
+          // navigation.navigate('IdeaDetail')
+          createIdea('아이디어1', '아이디어 내용1')
+          setIdeas(getIdeas());
         }} />
       </ButtonContainer>
     </Container>

@@ -47,10 +47,10 @@ const HomeScreen = () => {
 
 export default HomeScreen;
 
-const Container = styled(SafeAreaView)`
+const Container = styled.View`
   flex: 1;
   background-color: ${Colors.white};
-  /* align-items: center; */
+  padding-top: 60px;
 `;
 
 

@@ -67,9 +67,9 @@ const ProblemDetailScreen = () => {
 
       <ButtonContainer>
         <Button icon={penIconSvg} text='새로운 아이디어' onPress={() => {
-          createIdea('test', '', id.toString());
+          createIdea('', '', id.toString());
           const lastIdea = getIdeas().slice(-1)[0];
-          console.log('Created Idea:', lastIdea); // 일단 들어가진 건 확인 ㅇㅋ
+          console.log('Created Idea:', lastIdea);
           navigation.navigate('IdeaDetail', {id: lastIdea._id as string});
         }}/>
       </ButtonContainer>

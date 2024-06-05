@@ -8,6 +8,7 @@ import RootStackParamList from '../../navigation/RootStackParamList';
 import { MenuIcon20 } from '../../assets/icons/MenuIcon';
 import { Alert } from 'react-native';
 import { getProblemById } from '../../database/Functions';
+import { truncateText } from '../../utils/UtilFunctions';
 
 interface CardProps {
   id: string;
@@ -24,6 +25,7 @@ const ProblemCard = ({ id, onDelete }: CardProps) => {
       navigation.navigate('ProblemDetail', {id})
     }}>
       <StyledCard>
+
         <Container>
           <CardTitle>{title === '' ? '비어 있는 문제' : title as string}</CardTitle>
           <TouchableOpacity onPress={() => {
@@ -42,7 +44,8 @@ const ProblemCard = ({ id, onDelete }: CardProps) => {
           </TouchableOpacity>
         </Container>
         
-        <CardContent>{description === '' ? '문제의 내용을 채워주세요!' : description  as string}</CardContent>
+        <CardContent>{description === '' ? '문제의 내용을 채워주세요!' : truncateText(description as string, 70)}</CardContent>
+
       </StyledCard>
     </TouchableOpacity>
   );
@@ -72,4 +75,5 @@ const CardTitle = styled.Text`
 const CardContent = styled.Text`
   font-size: 14px;
   color: ${Colors.content};
+  margin-right: 40px;
 `;

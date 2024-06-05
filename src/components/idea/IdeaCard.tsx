@@ -8,6 +8,7 @@ import RootStackParamList from '../../navigation/RootStackParamList';
 import { MenuIcon20 } from '../../assets/icons/MenuIcon';
 import { Alert } from 'react-native';
 import { getIdeaById } from '../../database/Functions';
+import { truncateText } from '../../utils/UtilFunctions';
 
 interface CardProps {
   id: string;
@@ -41,7 +42,7 @@ const IdeaCard = ({ id, onDelete }: CardProps) => {
           </TouchableOpacity>
         </Container>
 
-        <CardContent>{description === '' ? '아이디어의 내용을 채워주세요!' : description as string}</CardContent>
+        <CardContent>{description === '' ? '아이디어의 내용을 채워주세요!' : truncateText(description as string, 70)}</CardContent>
       </StyledCard>
     </TouchableOpacity>
   );
@@ -54,6 +55,7 @@ const StyledCard = styled.View`
   padding: 15px;
   margin: 10px 20px;
   border-radius: 10px;
+  /* max-height: 100px; */
 `;
 
 const Container = styled.View`
@@ -71,4 +73,5 @@ const CardTitle = styled.Text`
 const CardContent = styled.Text`
   font-size: 14px;
   color: ${Colors.content};
+  margin-right: 40px;
 `;

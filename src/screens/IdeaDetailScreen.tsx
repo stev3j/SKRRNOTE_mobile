@@ -17,11 +17,16 @@ type IdeaDetailScreenRouteProp = RouteProp<RootStackParamList, 'IdeaDetail'>;
 
 const IdeaDetailScreen = () => {
   const route = useRoute<IdeaDetailScreenRouteProp>();
-  const { id } = route.params! ?? {};
-  const problemId = getIdeaById(id)?.relatedProblem || '';
+  const { id } = route.params! ?? '';
+  const problemId = (getIdeaById(id)?.relatedProblem || '') as string;
   console.log('problemId : ' + problemId)
   
-  const problemTitle = problemId === '' ? '' : getProblemById(problemId as string)?.title || ''; 
+  // ||는 0, '', null 등등 다 작동함
+  // 반면에 ??는 null, undifined만 작동함.
+
+  // MY ERROR : getProblemById(problemId as string)?.title 여기서 에러가 뜸
+  // error message : BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+  const problemTitle = problemId === '' ? '' : getProblemById(problemId)?.title || '';
   const title = getIdeaById(id)?.title || '';
   const description = getIdeaById(id)?.description || '';
   const relatedProblem = getIdeaById(id)?.relatedProblem || ''
@@ -103,3 +108,7 @@ const SubText = styled.TextInput`
 `;
 
 export default IdeaDetailScreen;
+
+
+// TEST!!!
+// 665fcbe42a5ca4a460d6f4ba

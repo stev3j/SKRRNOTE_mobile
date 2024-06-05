@@ -8,7 +8,7 @@ import RootStackParamList from '../navigation/RootStackParamList';
 import { ButtonContainer } from '../utils/ETCViews';
 import Button from '../components/Button';
 import { penIconSvg } from '../assets/icons/PenIcon';
-import { createIdea, getIdeas, getProblems } from '../database/Functions';
+import { createIdea, getIdeas, getProblemById, getProblems } from '../database/Functions';
 import IdeaList from '../components/idea/IdeaList';
 import Idea from '../database/models/Idea';
 
@@ -18,7 +18,7 @@ const IdeaScreen = () => {
 
   useEffect(() => {
     console.log(ideas)
-  }, ideas)
+  }, [ideas])
 
   return (
     <Container>
@@ -26,7 +26,8 @@ const IdeaScreen = () => {
 
       <ButtonContainer>
         <Button text='새로운 아이디어' icon={penIconSvg} marginBottom={34} onPress={() => {
-          // ERROR : Argument passed in must be a string of 12 bytes or a string of 24 hex ...
+          // console.log(getProblems()[0]._id) // MY ERROR : 왜 에러뜸..?
+          // console.log(getProblemById('665fc9032a5ca4a460d6f4b6')) // MY ERROR : 왜 에러뜸..?
           createIdea('', '', '') // 만들고
           const lastIdea = getIdeas().slice(-1)[0]; // 만들어진 객체
           navigation.navigate('IdeaDetail', {id: lastIdea._id as string}) // id 넘겨주기

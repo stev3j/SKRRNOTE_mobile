@@ -5,7 +5,7 @@ import { SvgXml } from 'react-native-svg';
 import { penIconSvg } from '../../assets/icons/PenIcon';
 import { TouchableOpacity, View, Text, Button } from 'react-native';
 import Modal from 'react-native-modal';
-import ProblemModal from '../ProblemModal';
+import ProblemModal from './ProblemModal';
 import ChangeIcon from '../../assets/icons/ChnageIcon';
 
 interface RelatedProblemBoxProps {
@@ -31,9 +31,7 @@ const RelatedProblemBox = ({ problemTitle, onPress, ideaId } : RelatedProblemBox
         </Container>
       </TouchableOpacity>
 
-      <ProblemModal isVisible={modalVisible} onClose={() => {
-        setModalVisible(false);
-      }} ideaId={ideaId}/>
+      <ProblemModal isVisible={modalVisible} setModalVisible={setModalVisible} ideaId={ideaId}/>
     </>
   );
 };

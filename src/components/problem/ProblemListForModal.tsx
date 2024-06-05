@@ -7,16 +7,17 @@ import ProblemCardForModal from './ProblemCardForModal';
 interface ProblemListProps {
     problems: any;
     ideaId: string;
+    setModalVisible: any;
 }
 
-const ProblemListForModal = ({problems, ideaId}: ProblemListProps) => {
+const ProblemListForModal = ({problems, ideaId, setModalVisible}: ProblemListProps) => {
 
   return (
     <FlatList
       data={problems}
       keyExtractor={(item) => item._id}
       renderItem={({ item }) => (
-        <ProblemCardForModal problemId={item._id} ideaId={ideaId}/>
+        <ProblemCardForModal problemId={item._id} ideaId={ideaId} setModalVisible={setModalVisible}/>
       )}
     />
   );

@@ -7,26 +7,37 @@ import { StackNavigationProp } from '@react-navigation/stack';
 import RootStackParamList from '../../navigation/RootStackParamList';
 import { MenuIcon20 } from '../../assets/icons/MenuIcon';
 import { Alert } from 'react-native';
-import { getProblemById, updateIdea } from '../../database/Functions';
+import { getIdeaById, getProblemById, updateIdea } from '../../database/Functions';
+import { ObjectId } from 'bson';
 
 interface ProblemCardForModalProps {
   problemId: string;
   ideaId: string;
+  setModalVisible: any;
 }
 
-const ProblemCardForModal = ({ problemId, ideaId }: ProblemCardForModalProps) => {
+const ProblemCardForModal = ({ problemId, ideaId, setModalVisible }: ProblemCardForModalProps) => {
   const title = getProblemById(problemId)?.title
   const description = getProblemById(problemId)?.description
 
+  const ideaTitle = getIdeaById(ideaId)?.title
+  const ideaDescription = getIdeaById(ideaId)?.description
+
   return (
     <TouchableOpacity onPress={() => {
-      console.log('update!!')
-      updateIdea(ideaId, title as string, description as string, problemId)
+      console.log("updateIdea", ideaId, ideaTitle, ideaDescription, problemId)
+
+      // MY ERROR : Expected value to be a string, got an instance of ObjectId
+      // MY OPINION : 내 생각엔 ideaId가 계속적으로 바뀌는 것 같음. 그래서 에러가 뜬거 ㄷㄷ..
+      updateIdea(ideaId, ideaTitle as string, ideaDescription as string, problemId.toString())
+      setModalVisible(false)
     }}>
+
       <StyledCard>
         <CardTitle>{title === '' ? '비어 있는 문제' : title as string}</CardTitle>
         <CardContent>{description === '' ? '문제의 내용을 채워주세요!' : description  as string}</CardContent>
       </StyledCard>
+
     </TouchableOpacity>
   );
 };

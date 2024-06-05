@@ -11,12 +11,15 @@ import Button from '../components/Button';
 import { ButtonContainer } from '../utils/ETCViews';
 import { createIdea, getIdeas, getProblemById, updateProblem } from '../database/Functions';
 import { useSafeAreaFrame } from 'react-native-safe-area-context';
+import { ObjectId } from 'bson';
 
 type ProblemDetailRouteProp = RouteProp<RootStackParamList, 'ProblemDetail'>;
 
 const ProblemDetailScreen = () => {
   const route = useRoute<ProblemDetailRouteProp>();
-  const { id } = route.params! ?? {};
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+
+  const { id } = route.params! ?? ''
 
   const title = getProblemById(id)?.title || ''
   const description = getProblemById(id)?.description || ''
@@ -24,7 +27,6 @@ const ProblemDetailScreen = () => {
   const [_title, setTitle] = useState(title)
   const [_description, setDescription] = useState(description)
 
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   useEffect(() => {
     updateProblem(id, _title.toString(), _description.toString())
@@ -48,13 +50,12 @@ const ProblemDetailScreen = () => {
 
       <ButtonContainer>
         <Button icon={penIconSvg} text='새로운 아이디어' onPress={() => {
-          createIdea('', '', id.toString());
+          createIdea('test', '', id.toString());
           const lastIdea = getIdeas().slice(-1)[0];
           console.log('Created Idea:', lastIdea); // 일단 들어가진 건 확인 ㅇㅋ
           navigation.navigate('IdeaDetail', {id: lastIdea._id as string});
         }}/>
       </ButtonContainer>
-        
     </Container>
   );
 };

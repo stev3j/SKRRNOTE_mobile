@@ -1,32 +1,32 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import Colors from '../styles/Colors';
+import Colors from '../../styles/Colors';
 import Modal from 'react-native-modal';
-import ProblemList from './problem/ProblemList';
-import { getProblems } from '../database/Functions';
-import ProblemListForModal from './problem/ProblemListForModal';
+import ProblemList from './ProblemList';
+import { getProblems } from '../../database/Functions';
+import ProblemListForModal from './ProblemListForModal';
 
 interface ProblemModalProps {
   isVisible: boolean;
-  onClose: () => void;
+  setModalVisible: any;
   ideaId: string;
 }
 
-const ProblemModal = ({ isVisible, onClose, ideaId }: ProblemModalProps) => {
+const ProblemModal = ({ isVisible, setModalVisible, ideaId }: ProblemModalProps) => {
   const [problems, setProblems] = useState<any>(getProblems());
 
   return (
     <Modal
       isVisible={isVisible}
-      onBackdropPress={onClose}
-      style={{ justifyContent: 'flex-end', margin: 0 }}
-    >
+      onBackdropPress={() => setModalVisible(false)}
+      style={{ justifyContent: 'flex-end', margin: 0 }}>
+
       <ModalContent>
         <Container>
           <Title>관련 문제</Title>
         </Container>
         
-        <ProblemListForModal problems={problems} ideaId={ideaId} />
+        <ProblemListForModal problems={problems} ideaId={ideaId} setModalVisible={setModalVisible} />
       </ModalContent>
     </Modal>
   );

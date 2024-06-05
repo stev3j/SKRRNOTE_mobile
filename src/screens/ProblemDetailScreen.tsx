@@ -20,6 +20,7 @@ const ProblemDetailScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   const { id } = route.params! ?? ''
+  // const stringId =  id.toHexString()
 
   const title = getProblemById(id)?.title || ''
   const description = getProblemById(id)?.description || ''

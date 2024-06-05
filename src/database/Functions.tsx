@@ -71,7 +71,6 @@ export const getIdeas = () => {
 };
 
 export const getProblemById = (id: string) => {
-  // MY ERROR : id는 괜찮음. 근데 
   let problem = realm.objectForPrimaryKey("Problem", new ObjectId(id));
   if (problem) {
     return { title: problem.title, description: problem.description };

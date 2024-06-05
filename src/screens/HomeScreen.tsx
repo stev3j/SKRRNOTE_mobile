@@ -27,7 +27,7 @@ const HomeScreen = () => {
     <Container>
       {/* <StatusBar barStyle="dark-content" /> */}
       <Header>
-        <Title>SKRRNOTE</Title>
+        <Title>SKRR NOTE</Title>
       </Header>
 
       <TabContainer selectedTab={selectedTab} setSelectedTab={setSelectedTab} />

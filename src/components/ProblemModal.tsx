@@ -1,14 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components/native';
 import Colors from '../styles/Colors';
 import Modal from 'react-native-modal';
+import ProblemList from './problem/ProblemList';
+import { getProblems } from '../database/Functions';
+import ProblemListForModal from './problem/ProblemListForModal';
 
 interface ProblemModalProps {
   isVisible: boolean;
   onClose: () => void;
+  ideaId: string;
 }
 
-const ProblemModal = ({ isVisible, onClose }: ProblemModalProps) => {
+const ProblemModal = ({ isVisible, onClose, ideaId }: ProblemModalProps) => {
+  const [problems, setProblems] = useState<any>(getProblems());
+
   return (
     <Modal
       isVisible={isVisible}
@@ -16,30 +22,27 @@ const ProblemModal = ({ isVisible, onClose }: ProblemModalProps) => {
       style={{ justifyContent: 'flex-end', margin: 0 }}
     >
       <ModalContent>
-        <Title>관련 문제</Title>
-        <ProblemItem>
-          <ProblemTitle>좋은 아이디어를 찾기 힘들다</ProblemTitle>
-          <ProblemDescription>
-            왜 좋은 아이디어를 찾기 힘들까? 내가 겪은 문제에 서부터 출발하지 않았기 때문...
-          </ProblemDescription>
-        </ProblemItem>
-        <ProblemItem>
-          <ProblemTitle>완전한 몰입을 경험하기 힘들다</ProblemTitle>
-          <ProblemDescription>
-            왜 완전한 몰입을 경험하기 힘들까? 몰입하기 위한 환경이 잘 조성되지 않았기 때문이다. 그리고 ...
-          </ProblemDescription>
-        </ProblemItem>
+        <Container>
+          <Title>관련 문제</Title>
+        </Container>
+        
+        <ProblemListForModal problems={problems} ideaId={ideaId} />
       </ModalContent>
     </Modal>
   );
 };
 
+const Container = styled.View`
+  align-items: center;
+  padding-top: 20px
+`;
 const ModalContent = styled.View`
   background-color: white;
-  padding: 22px;
+  /* padding: 22px; */
+  padding-bottom: 50px;
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
-  align-items: center;
+  /* align-items: center; */
 `;
 
 const Title = styled.Text`

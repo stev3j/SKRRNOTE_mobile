@@ -2,6 +2,7 @@ import React from 'react';
 import styled from 'styled-components/native';
 import BackArrowIcon from '../assets/icons/BackArrowIcon.tsx';
 import MenuIcon from '../assets/icons/MenuIcon.tsx';
+import { TouchableOpacity } from 'react-native';
 
 interface TopBarProps {
   title: string;
@@ -16,7 +17,9 @@ const TopBar = ({ title, onBackPress, onMenuPress }: TopBarProps) => {
         <BackArrowIcon />
       </BackButton>
       <Title>{title}</Title> 
-      <MenuIcon/>
+      <TouchableOpacity onPress={onMenuPress}>
+        <MenuIcon/>
+      </TouchableOpacity>
     </TopBarContainer>
   );
 };

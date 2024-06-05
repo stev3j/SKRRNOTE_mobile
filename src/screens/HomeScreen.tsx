@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { SafeAreaView, ScrollView, StatusBar, Text } from 'react-native';
 import styled from 'styled-components/native';
-import Card from '../components/ProblemCard';
+import Card from '../components/problem/ProblemCard';
 import Colors from '../styles/Colors';
 import TabContainer from '../components/TabContainer';
 import IdeaScreen from './IdeaScreen';

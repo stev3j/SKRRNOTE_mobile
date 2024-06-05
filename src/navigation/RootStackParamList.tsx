@@ -1,7 +1,8 @@
 type RootStackParamList = {
   Home: undefined;
-  ProblemDetail: {title: string, content: string} | undefined;
-  IdeaDetail: {problemTitle: string} | {title: string, content: string} | undefined;
+  ProblemDetail: {id: string} | undefined;
+  // IdeaDetail: {problemId: string, id: string} | {id: string} | undefined;
+  IdeaDetail: { id: string} | undefined;
 };
 
 export default RootStackParamList

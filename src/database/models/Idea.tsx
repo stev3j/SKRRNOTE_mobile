@@ -4,6 +4,7 @@ class Idea extends Realm.Object {
   _id!: Realm.BSON.ObjectId;
   title!: string;
   description!: string;
+  relatedProblem!: string;
 
   static schema = {
     name: "Idea",
@@ -12,6 +13,7 @@ class Idea extends Realm.Object {
       _id: "objectId",
       title: "string",
       description: "string",
+      relatedProblem: "string",
     },
   };
 }

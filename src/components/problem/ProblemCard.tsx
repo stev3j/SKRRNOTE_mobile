@@ -1,29 +1,31 @@
 import React from 'react';
 import styled from 'styled-components/native';
-import Colors from '../styles/Colors';
+import Colors from '../../styles/Colors';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
-import RootStackParamList from '../navigation/RootStackParamList';
-import { MenuIcon20 } from '../assets/icons/MenuIcon';
+import RootStackParamList from '../../navigation/RootStackParamList';
+import { MenuIcon20 } from '../../assets/icons/MenuIcon';
 import { Alert } from 'react-native';
+import { getProblemById } from '../../database/Functions';
 
 interface CardProps {
-  title: string;
-  content: string;
+  id: string;
   onDelete: () => void;
 }
 
-const IdeaCard = ({ title, content, onDelete }: CardProps) => {
+const ProblemCard = ({ id, onDelete }: CardProps) => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
+  const title = getProblemById(id)?.title
+  const description = getProblemById(id)?.description
 
   return (
     <TouchableOpacity onPress={() => {
-      navigation.navigate('IdeaDetail', {title, content})
+      navigation.navigate('ProblemDetail', {id})
     }}>
       <StyledCard>
         <Container>
-          <CardTitle>{title}</CardTitle>
+          <CardTitle>{title === '' ? '비어 있는 문제' : title as string}</CardTitle>
           <TouchableOpacity onPress={() => {
             console.log('clicked menu')
             Alert.alert(
@@ -39,14 +41,14 @@ const IdeaCard = ({ title, content, onDelete }: CardProps) => {
             <MenuIcon20 />
           </TouchableOpacity>
         </Container>
-
-        <CardContent>{content}</CardContent>
+        
+        <CardContent>{description === '' ? '문제의 내용을 채워주세요!' : description  as string}</CardContent>
       </StyledCard>
     </TouchableOpacity>
   );
 };
 
-export default IdeaCard;
+export default ProblemCard;
 
 const StyledCard = styled.View`
   background-color: ${Colors.container};

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
 import styled from 'styled-components/native';
 import TopBar from '../components/TopBar';
@@ -8,42 +8,67 @@ import Colors from '../styles/Colors';
 import Button from '../components/Button';
 import { aiIconSvg } from '../assets/icons/AiIcon';
 import { ButtonContainer } from '../utils/ETCViews';
-import RelatedProblemBox from '../components/RelatedProblemBox';
+import RelatedProblemBox from '../components/problem/RelatedProblemBox';
+import { deleteIdea, getIdeaById, getProblemById, updateIdea } from '../database/Functions';
+import { ObjectId } from "bson";
+import { Alert } from 'react-native';
 
 type IdeaDetailScreenRouteProp = RouteProp<RootStackParamList, 'IdeaDetail'>;
 
 const IdeaDetailScreen = () => {
   const route = useRoute<IdeaDetailScreenRouteProp>();
-    const { problemTitle, title, content } = route.params as { problemTitle?: string; title?: string; content?: string } ?? {};
+  const { id } = route.params! ?? {};
+  const problemId = getIdeaById(id)?.relatedProblem || '';
+  console.log('problemId : ' + problemId)
+  
+  const problemTitle = problemId === '' ? '' : getProblemById(problemId as string)?.title || ''; 
+  const title = getIdeaById(id)?.title || '';
+  const description = getIdeaById(id)?.description || '';
+  const relatedProblem = getIdeaById(id)?.relatedProblem || ''
+
+  const [_title, setTitle] = useState(title)
+  const [_description, setDescription] = useState(description)
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+  useEffect(() => {
+    updateIdea(id, _title.toString(), _description.toString(), problemId as string)
+    console.log(getIdeaById(id))
+  }, [_title, _description, relatedProblem])
+
+  const onDelete = () => {
+    deleteIdea(id);
+    navigation.goBack()
+    // 그리고 리랜더링해서 화면 재구성해야함.. (근데 어떻게함?)
+  }
+
   return (
     <Container>
-      <TopBar title='아이디어' onBackPress={() => {navigation.goBack()}} onMenuPress={() =>{}}></TopBar>
+      <TopBar title='아이디어' onBackPress={() => {navigation.goBack()}} onMenuPress={() =>{
+        Alert.alert(
+          '삭제 확인',
+          '정말로 이 아이디어를 삭제하시겠습니까?',
+          [
+            { text: '취소', style: 'cancel' },
+            { text: '삭제', onPress: onDelete, style: 'destructive' }
+          ],
+          { cancelable: true }
+        );
+      }}></TopBar>
       <Content>
         <Question
-          placeholder='어떤 신박한 아이디어를 생각해냈나요?'>
-            {title}
-        </Question>
-        
-        <RelatedProblemBox problemTitle={problemTitle ?? ''} onPress={() => {
-          navigation.navigate('ProblemDetail', {title: problemTitle ?? '', content: ''})
-        }}/>
-
+          value={_title.toString()}
+          onChangeText={setTitle}
+          placeholder='어떤 신박한 아이디어를 생각해냈나요?'/>
+        <RelatedProblemBox problemTitle={problemTitle} onPress={() => {
+          navigation.navigate('ProblemDetail', {id: problemId as string})
+        }} ideaId={id}/>
         <SubText
+          value={_description.toString()}
+          onChangeText={setDescription}
           placeholder='아이디어를 정리해보세요...'
-          multiline={true}>
-            {content}
-        </SubText>
+          multiline={true}/>
       </Content>
-
-      {/* <ButtonContainer>
-        <Button icon={aiIconSvg} text='비슷한 아이디어' onPress={() => {
-
-        }}/>
-      </ButtonContainer> */}
-        
     </Container>
   );
 };

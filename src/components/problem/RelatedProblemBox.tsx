@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import styled from 'styled-components/native';
-import Colors from '../styles/Colors';
+import Colors from '../../styles/Colors';
 import { SvgXml } from 'react-native-svg';
-import { penIconSvg } from '../assets/icons/PenIcon';
+import { penIconSvg } from '../../assets/icons/PenIcon';
 import { TouchableOpacity, View, Text, Button } from 'react-native';
 import Modal from 'react-native-modal';
-import ProblemModal from './ProblemModal';
+import ProblemModal from '../ProblemModal';
+import ChangeIcon from '../../assets/icons/ChnageIcon';
 
 interface RelatedProblemBoxProps {
-  problemTitle: string;
+  problemTitle: any;
   onPress?: () => void;
+  ideaId: string;
 }
 
-const RelatedProblemBox = ({ problemTitle, onPress } : RelatedProblemBoxProps) => {
+const RelatedProblemBox = ({ problemTitle, onPress, ideaId } : RelatedProblemBoxProps) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -23,7 +25,7 @@ const RelatedProblemBox = ({ problemTitle, onPress } : RelatedProblemBoxProps) =
           { 
             problemTitle == '' ? <View/> : 
             <TouchableOpacity onPress={() => setModalVisible(true)}>
-              <SvgXml xml={penIconSvg} width={16} height={16}/>
+              <ChangeIcon/>
             </TouchableOpacity>
           }
         </Container>
@@ -31,17 +33,7 @@ const RelatedProblemBox = ({ problemTitle, onPress } : RelatedProblemBoxProps) =
 
       <ProblemModal isVisible={modalVisible} onClose={() => {
         setModalVisible(false);
-      }}/>
-      {/* <Modal
-        isVisible={modalVisible}
-        onBackdropPress={() => setModalVisible(false)}
-        style={{ justifyContent: 'flex-end', margin: 0 }}
-      >
-        <ModalContent>
-          <Text>관련 문제</Text>
-          <Button title="닫기" onPress={() => setModalVisible(false)} />
-        </ModalContent>
-      </Modal> */}
+      }} ideaId={ideaId}/>
     </>
   );
 };

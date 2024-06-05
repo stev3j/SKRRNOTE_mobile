@@ -9,9 +9,10 @@ interface ProblemListProps {
     problems: any;
     ideaId: string;
     setModalVisible: any;
+    setProblemId: any;
 }
 
-const ProblemListForModal = ({problems, ideaId, setModalVisible}: ProblemListProps) => {
+const ProblemListForModal = ({problems, ideaId, setModalVisible, setProblemId}: ProblemListProps) => {
 
   return (
     <FlatList
@@ -19,7 +20,7 @@ const ProblemListForModal = ({problems, ideaId, setModalVisible}: ProblemListPro
       data={problems}
       keyExtractor={(item) => item._id}
       renderItem={({ item }) => (
-        <ProblemCardForModal problemId={item._id} ideaId={ideaId} setModalVisible={setModalVisible}/>
+        <ProblemCardForModal problemId={item._id} ideaId={ideaId} setModalVisible={setModalVisible} setProblemId={setProblemId}/>
       )}
     />
   );

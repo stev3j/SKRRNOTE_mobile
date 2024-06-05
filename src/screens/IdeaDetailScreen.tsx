@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RouteProp, useNavigation, useRoute } from '@react-navigation/native';
+import { RouteProp, useFocusEffect, useIsFocused, useNavigation, useRoute } from '@react-navigation/native';
 import styled from 'styled-components/native';
 import TopBar from '../components/TopBar';
 import { StackNavigationProp } from '@react-navigation/stack';
@@ -18,15 +18,9 @@ type IdeaDetailScreenRouteProp = RouteProp<RootStackParamList, 'IdeaDetail'>;
 const IdeaDetailScreen = () => {
   const route = useRoute<IdeaDetailScreenRouteProp>();
   const { id } = route.params! ?? '';
-  const problemId = (getIdeaById(id)?.relatedProblem || '') as string;
-  console.log('problemId : ' + problemId)
-  
-  // ||는 0, '', null 등등 다 작동함
-  // 반면에 ??는 null, undifined만 작동함.
+  const [problemId, setProblemId] = useState(getIdeaById(id)?.relatedProblem || '');
+  const [problemTitle, setProblemTitle] = useState(problemId === '' ? '' : getProblemById(problemId as string)?.title || '');
 
-  // MY ERROR : getProblemById(problemId as string)?.title 여기서 에러가 뜸
-  // error message : BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
-  const problemTitle = problemId === '' ? '' : getProblemById(problemId)?.title || '';
   const title = getIdeaById(id)?.title || '';
   const description = getIdeaById(id)?.description || '';
   const relatedProblem = getIdeaById(id)?.relatedProblem || ''
@@ -36,6 +30,19 @@ const IdeaDetailScreen = () => {
 
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+
+  useFocusEffect(
+    React.useCallback(() => {
+      const changedProblemId = getIdeaById(id)?.relatedProblem || '';
+      setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+    }, [])
+  );
+
+  useEffect(() => {
+    const changedProblemId = getIdeaById(id)?.relatedProblem || '';
+    setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+  }, [problemId])
+
   useEffect(() => {
     updateIdea(id, _title.toString(), _description.toString(), problemId as string)
     console.log(getIdeaById(id))
@@ -44,7 +51,6 @@ const IdeaDetailScreen = () => {
   const onDelete = () => {
     deleteIdea(id);
     navigation.goBack()
-    // 그리고 리랜더링해서 화면 재구성해야함.. (근데 어떻게함?)
   }
 
   return (
@@ -59,15 +65,17 @@ const IdeaDetailScreen = () => {
           ],
           { cancelable: true }
         );
-      }}></TopBar>
+      }}/>
       <Content>
         <Question
           value={_title.toString()}
           onChangeText={setTitle}
           placeholder='어떤 신박한 아이디어를 생각해냈나요?'/>
+
         <RelatedProblemBox problemTitle={problemTitle} onPress={() => {
           navigation.navigate('ProblemDetail', {id: problemId as string})
-        }} ideaId={id}/>
+        }} ideaId={id} setProblemId={setProblemId}/>
+
         <SubText
           value={_description.toString()}
           onChangeText={setDescription}

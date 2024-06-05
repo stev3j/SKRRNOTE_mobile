@@ -14,9 +14,10 @@ interface ProblemCardForModalProps {
   problemId: string;
   ideaId: string;
   setModalVisible: any;
+  setProblemId: any;
 }
 
-const ProblemCardForModal = ({ problemId, ideaId, setModalVisible }: ProblemCardForModalProps) => {
+const ProblemCardForModal = ({ problemId, ideaId, setModalVisible, setProblemId }: ProblemCardForModalProps) => {
   const title = getProblemById(problemId)?.title
   const description = getProblemById(problemId)?.description
 
@@ -26,9 +27,7 @@ const ProblemCardForModal = ({ problemId, ideaId, setModalVisible }: ProblemCard
   return (
     <TouchableOpacity onPress={() => {
       console.log("updateIdea", ideaId, ideaTitle, ideaDescription, problemId)
-
-      // MY ERROR : Expected value to be a string, got an instance of ObjectId
-      // MY OPINION : 내 생각엔 ideaId가 계속적으로 바뀌는 것 같음. 그래서 에러가 뜬거 ㄷㄷ..
+      setProblemId(problemId.toString())
       updateIdea(ideaId, ideaTitle as string, ideaDescription as string, problemId.toString())
       setModalVisible(false)
     }}>

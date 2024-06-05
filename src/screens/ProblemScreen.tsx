@@ -4,7 +4,7 @@ import styled from 'styled-components/native';
 import ProblemCard from '../components/problem/ProblemCard';
 import Button from '../components/Button';
 import { penIconSvg } from '../assets/icons/PenIcon';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import RootStackParamList from '../navigation/RootStackParamList';
 import { ButtonContainer } from '../utils/ETCViews';
@@ -15,6 +15,12 @@ import { useSafeAreaFrame } from 'react-native-safe-area-context';
 const ProblemScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [problems, setProblems] = useState<any>(getProblems());
+
+  useFocusEffect(
+    React.useCallback(() => {
+      setProblems(getProblems());
+    }, [])
+  );
 
   useEffect(() => {
     console.log(problems);

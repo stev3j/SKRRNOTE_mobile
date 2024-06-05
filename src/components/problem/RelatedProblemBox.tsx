@@ -12,9 +12,10 @@ interface RelatedProblemBoxProps {
   problemTitle: any;
   onPress?: () => void;
   ideaId: string;
+  setProblemId: any;
 }
 
-const RelatedProblemBox = ({ problemTitle, onPress, ideaId } : RelatedProblemBoxProps) => {
+const RelatedProblemBox = ({ problemTitle, onPress, ideaId, setProblemId } : RelatedProblemBoxProps) => {
   const [modalVisible, setModalVisible] = useState(false);
 
   return (
@@ -31,7 +32,11 @@ const RelatedProblemBox = ({ problemTitle, onPress, ideaId } : RelatedProblemBox
         </Container>
       </TouchableOpacity>
 
-      <ProblemModal isVisible={modalVisible} setModalVisible={setModalVisible} ideaId={ideaId}/>
+      <ProblemModal
+        isVisible={modalVisible}
+        setModalVisible={setModalVisible}
+        ideaId={ideaId}
+        setProblemId={setProblemId}/>
     </>
   );
 };

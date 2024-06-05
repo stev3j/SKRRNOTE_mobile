@@ -9,9 +9,10 @@ import PenIcon, { penIconSvg } from '../assets/icons/PenIcon';
 import Colors from '../styles/Colors';
 import Button from '../components/Button';
 import { ButtonContainer } from '../utils/ETCViews';
-import { createIdea, getIdeas, getProblemById, updateProblem } from '../database/Functions';
+import { createIdea, deleteProblem, getIdeas, getProblemById, updateProblem } from '../database/Functions';
 import { useSafeAreaFrame } from 'react-native-safe-area-context';
 import { ObjectId } from 'bson';
+import { Alert } from 'react-native';
 
 type ProblemDetailRouteProp = RouteProp<RootStackParamList, 'ProblemDetail'>;
 
@@ -34,9 +35,24 @@ const ProblemDetailScreen = () => {
     console.log(getProblemById(id))
   }, [_title, _description])
 
+  const onDelete = () => {
+    deleteProblem(id);
+    navigation.goBack()
+  }
+
   return (
     <Container>
-      <TopBar title='문제' onBackPress={() => {navigation.goBack()}} onMenuPress={() =>{}}></TopBar>
+      <TopBar title='문제' onBackPress={() => {navigation.goBack()}} onMenuPress={() =>{
+        Alert.alert(
+          '삭제 확인',
+          '정말로 이 아이디어를 삭제하시겠습니까?',
+          [
+            { text: '취소', style: 'cancel' },
+            { text: '삭제', onPress: onDelete, style: 'destructive' }
+          ],
+          { cancelable: true }
+        );
+      }}/>
       <Content>
         <Question
           value={_title.toString()}

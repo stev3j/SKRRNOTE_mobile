@@ -10,9 +10,10 @@ interface ProblemModalProps {
   isVisible: boolean;
   setModalVisible: any;
   ideaId: string;
+  setProblemId: any;
 }
 
-const ProblemModal = ({ isVisible, setModalVisible, ideaId }: ProblemModalProps) => {
+const ProblemModal = ({ isVisible, setModalVisible, ideaId, setProblemId }: ProblemModalProps) => {
   const [problems, setProblems] = useState<any>(getProblems());
 
   return (
@@ -26,7 +27,11 @@ const ProblemModal = ({ isVisible, setModalVisible, ideaId }: ProblemModalProps)
           <Title>관련 문제</Title>
         </Container>
         
-        <ProblemListForModal problems={problems} ideaId={ideaId} setModalVisible={setModalVisible} />
+        <ProblemListForModal 
+          problems={problems} 
+          ideaId={ideaId}
+          setModalVisible={setModalVisible} 
+          setProblemId={setProblemId}/>
       </ModalContent>
     </Modal>
   );

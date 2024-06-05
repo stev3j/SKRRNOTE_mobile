@@ -13,34 +13,28 @@ import Button from '../components/Button';
 import { penIconSvg } from '../assets/icons/PenIcon';
 
 const HomeScreen = () => {
-
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
   const [selectedTab, setSelectedTab] = useState('문제');
 
   const renderContent = () => {
     if (selectedTab === '문제') {
-      return (
-        <ProblemScreen/>
-      );
+      return <ProblemScreen/>;
     } else if (selectedTab === '아이디어') {
-      return (
-        <IdeaScreen/>
-      );
+      return <IdeaScreen/>;
     }
   };
 
   return (
     <Container>
-      <StatusBar barStyle="dark-content" />
+      {/* <StatusBar barStyle="dark-content" /> */}
       <Header>
         <Title>SKRRNOTE</Title>
       </Header>
+
       <TabContainer selectedTab={selectedTab} setSelectedTab={setSelectedTab} />
+      
       <ContentContainer>
         {renderContent()}
       </ContentContainer>
-      
     </Container>
   );
 };

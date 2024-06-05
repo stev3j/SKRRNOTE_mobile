@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import IdeaCard from '../components/idea/IdeaCard';
-import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect, useNavigation } from '@react-navigation/native';
 import { StackNavigationProp } from '@react-navigation/stack';
 import RootStackParamList from '../navigation/RootStackParamList';
 import { ButtonContainer } from '../utils/ETCViews';
@@ -16,6 +16,12 @@ const IdeaScreen = () => {
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
   const [ideas, setIdeas] = useState<any>(getIdeas());
 
+  useFocusEffect(
+    React.useCallback(() => {
+      setIdeas(getIdeas());
+    }, [])
+  );
+
   useEffect(() => {
     console.log(ideas)
   }, [ideas])
@@ -26,8 +32,6 @@ const IdeaScreen = () => {
 
       <ButtonContainer>
         <Button text='새로운 아이디어' icon={penIconSvg} marginBottom={34} onPress={() => {
-          // console.log(getProblems()[0]._id) // MY ERROR : 왜 에러뜸..?
-          // console.log(getProblemById('665fc9032a5ca4a460d6f4b6')) // MY ERROR : 왜 에러뜸..?
           createIdea('', '', '') // 만들고
           const lastIdea = getIdeas().slice(-1)[0]; // 만들어진 객체
           navigation.navigate('IdeaDetail', {id: lastIdea._id as string}) // id 넘겨주기

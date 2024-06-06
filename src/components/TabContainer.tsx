@@ -13,16 +13,23 @@ const TabContainer = ({ selectedTab, setSelectedTab }: TabContainerProps) => {
   return (
     <Container>
       <Tab onPress={() => setSelectedTab('문제')} isSelected={selectedTab === '문제'}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', color: selectedTab === '문제' ? Colors.black : Colors.content }}>문제</Text>
+        <TabText isSelected={selectedTab === '문제'}>문제</TabText>
       </Tab>
       <Tab onPress={() => setSelectedTab('아이디어')} isSelected={selectedTab === '아이디어'}>
-        <Text style={{ fontSize: 18, fontWeight: 'bold', color: selectedTab === '아이디어' ? Colors.black : Colors.content }}>아이디어</Text>
+        <TabText isSelected={selectedTab === '아이디어'}>아이디어</TabText>
       </Tab>
     </Container>
   );
 };
 
 export default TabContainer;
+
+const TabText = styled.Text<{ isSelected: boolean }>`
+  font-size: 20px;
+  font-weight: 700;
+  color: ${({ isSelected }) => (isSelected ? Colors.black : Colors.content)};
+  font-family: 'pretendard';
+`;
 
 const Container = styled.View`
   flex-direction: row;

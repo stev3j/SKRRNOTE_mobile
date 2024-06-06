@@ -25,7 +25,6 @@ const HomeScreen = () => {
 
   return (
     <Container>
-      {/* <StatusBar barStyle="dark-content" /> */}
       <Header>
         <Title>SKRR NOTE</Title>
       </Header>
@@ -48,7 +47,6 @@ const Container = styled.View`
 `;
 
 
-
 const Header = styled.View`
   padding: 20px;
   align-items: center;
@@ -57,7 +55,11 @@ const Header = styled.View`
 const Title = styled.Text`
   font-size: 24px;
   font-weight: bold;
-`;
+  color: ${Colors.black};
+  font-weight: 700;
+  font-family: 'pretendard'; 
+`; // myPROBLEM : 폰트 적용이 안됨.
+
 
 const ContentContainer = styled.View`
   flex: 1;

@@ -32,6 +32,8 @@ const IdeaScreen = () => {
 
       <ButtonContainer>
         <Button text='새로운 아이디어' icon={penIconSvg} marginBottom={34} onPress={() => {
+          // myERROR : BSONTypeError: Argument passed in must be a string of 12 bytes or a string of 24 hex characters or an integer
+          // 
           createIdea('', '', '') // 만들고
           const lastIdea = getIdeas().slice(-1)[0]; // 만들어진 객체
           navigation.navigate('IdeaDetail', {id: lastIdea._id as string}) // id 넘겨주기

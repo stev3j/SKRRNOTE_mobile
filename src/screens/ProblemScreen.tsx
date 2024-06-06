@@ -38,7 +38,6 @@ const ProblemScreen = () => {
         }} />
       </ButtonContainer>
     </Container>
-    
   );
 };
 

@@ -18,35 +18,49 @@ type IdeaDetailScreenRouteProp = RouteProp<RootStackParamList, 'IdeaDetail'>;
 const IdeaDetailScreen = () => {
   const route = useRoute<IdeaDetailScreenRouteProp>();
   const { id } = route.params! ?? '';
-  const [problemId, setProblemId] = useState(getIdeaById(id)?.relatedProblem || '');
-  const [problemTitle, setProblemTitle] = useState(problemId === '' ? '' : getProblemById(problemId as string)?.title || '');
+
+  /** 아이디어 내용! */
 
   const title = getIdeaById(id)?.title || '';
-  const description = getIdeaById(id)?.description || '';
-  const relatedProblem = getIdeaById(id)?.relatedProblem || ''
-
   const [_title, setTitle] = useState(title)
+
+  const description = getIdeaById(id)?.description || '';
   const [_description, setDescription] = useState(description)
 
-  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
+  /** 아이디어와 문제 연결 */
+  
+  const _problemId = getIdeaById(id)?.relatedProblem || '';
+  const [problemId, setProblemId] = useState(_problemId);
+  const _problemTitle = problemId == '' ? '' : getProblemById(problemId as string)?.title || '';
+  const [problemTitle, setProblemTitle] = useState(_problemTitle);
+
+
+
+
+
+  const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
 
   useFocusEffect(
     React.useCallback(() => {
       const changedProblemId = getIdeaById(id)?.relatedProblem || '';
-      setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+      if (changedProblemId !== '') {
+        setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+      }
     }, [])
   );
 
   useEffect(() => {
     const changedProblemId = getIdeaById(id)?.relatedProblem || '';
-    setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+    if (changedProblemId !== '') {
+      setProblemTitle(getProblemById(changedProblemId as string)?.title || '')
+    }
   }, [problemId])
 
   useEffect(() => {
     updateIdea(id, _title.toString(), _description.toString(), problemId as string)
     console.log(getIdeaById(id))
-  }, [_title, _description, relatedProblem])
+  }, [_title, _description])
 
   const onDelete = () => {
     deleteIdea(id);
@@ -86,10 +100,28 @@ const IdeaDetailScreen = () => {
   );
 };
 
-const RelatedText = styled.Text`
-  font-size: 12px;
-  margin-top: 6px;
-`
+export default IdeaDetailScreen;
+
+const Question = styled.TextInput.attrs({
+  placeholderTextColor: Colors.placeholder,
+})`
+  font-size: 20px;
+  font-weight: bold;
+  margin-top: 16px;
+  color: ${Colors.black};
+  font-family: 'pretendard';
+`;
+
+const SubText = styled.TextInput.attrs({
+  placeholderTextColor: Colors.placeholder,
+})`
+  font-size: 16px;
+  color: ${Colors.black};
+  margin-top: 8px;
+  line-height: 26px;
+  font-family: 'pretendard';
+`;
+
 const Container = styled.SafeAreaView`
   flex: 1;
   background-color: white;
@@ -100,23 +132,3 @@ const Content = styled.View`
   padding-left: 24px;
   padding-right: 24px;
 `;
-
-const Question = styled.TextInput`
-  font-size: 20px;
-  font-weight: bold;
-  margin-top: 16px;
-`;
-
-const SubText = styled.TextInput`
-  font-size: 16px;
-  color: ${Colors.black};
-  margin-top: 8px;
-  margin-top: 12px;
-  line-height: 26px;
-`;
-
-export default IdeaDetailScreen;
-
-
-// TEST!!!
-// 665fcbe42a5ca4a460d6f4ba

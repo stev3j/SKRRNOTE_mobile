@@ -52,11 +52,15 @@ const StyledCard = styled.View`
 
 const CardTitle = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
+  color: ${Colors.black};
   margin-bottom: 8px;
+  font-family: 'pretendard';
 `;
 
 const CardContent = styled.Text`
   font-size: 14px;
+  font-weight: 400;
   color: ${Colors.content};
+  font-family: 'pretendard';
 `;

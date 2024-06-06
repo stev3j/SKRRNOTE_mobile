@@ -86,22 +86,29 @@ const Content = styled.View`
   flex: 1;
   padding-left: 24px;
   padding-right: 24px;
-  /* justify-content: center; */
-  /* align-items: center; */
 `;
 
-const Question = styled.TextInput`
+const Question = styled.TextInput.attrs({
+  placeholderTextColor: Colors.placeholder,
+})`
   font-size: 20px;
-  font-weight: bold;
+  font-weight: 700;
   margin-top: 16px;
+  color: ${Colors.black};
+
+  font-family: 'pretendard';
 `;
 
-const SubText = styled.TextInput`
+const SubText = styled.TextInput.attrs({
+  placeholderTextColor: Colors.placeholder,
+})`
   font-size: 16px;
+  font-weight: 400;
   color: ${Colors.black};
   margin-top: 8px;
-  margin-top: 12px;
+  margin-top: 8px;
   line-height: 26px;
+  font-family: 'pretendard';
 `;
 
 

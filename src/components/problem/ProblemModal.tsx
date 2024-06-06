@@ -52,27 +52,10 @@ const ModalContent = styled.View`
 
 const Title = styled.Text`
   font-size: 18px;
-  font-weight: bold;
+  font-weight: 700;
+  color: ${Colors.black};
   margin-bottom: 20px;
-`;
-
-const ProblemItem = styled.View`
-  background-color: #f5f5f5;
-  padding: 15px;
-  border-radius: 10px;
-  margin-bottom: 10px;
-  width: 100%;
-`;
-
-const ProblemTitle = styled.Text`
-  font-size: 16px;
-  font-weight: bold;
-  margin-bottom: 5px;
-`;
-
-const ProblemDescription = styled.Text`
-  font-size: 14px;
-  color: #666;
+  font-family: 'pretendard';
 `;
 
 export default ProblemModal;

@@ -29,6 +29,7 @@ const NewIssueButton = styled.TouchableOpacity<{ marginBottom: number | undefine
   border-radius: 8px;
   flex-direction: row;
   align-items: center;
+  /* justify-content: center; */
   border-width: 3px;
   border-color: ${Colors.white};
   margin-bottom: ${({ marginBottom }) => marginBottom ? marginBottom : 0}px;
@@ -36,8 +37,10 @@ const NewIssueButton = styled.TouchableOpacity<{ marginBottom: number | undefine
 
 const ButtonText = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   margin-left: 8px;
+  color: ${Colors.black};
+  font-family: 'pretendard';
 `;
 
 export default Button;

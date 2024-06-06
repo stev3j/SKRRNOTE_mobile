@@ -55,7 +55,6 @@ const StyledCard = styled.View`
   padding: 15px;
   margin: 10px 20px;
   border-radius: 10px;
-  /* max-height: 100px; */
 `;
 
 const Container = styled.View`
@@ -66,12 +65,16 @@ const Container = styled.View`
 
 const CardTitle = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
+  color: ${Colors.black};
   margin-bottom: 8px;
+  font-family: 'pretendard';
 `;
 
 const CardContent = styled.Text`
   font-size: 14px;
+  font-weight: 400;
   color: ${Colors.content};
   margin-right: 40px;
+  font-family: 'pretendard';
 `;

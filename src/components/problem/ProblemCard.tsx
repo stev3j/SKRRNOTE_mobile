@@ -68,12 +68,16 @@ const Container = styled.View`
 
 const CardTitle = styled.Text`
   font-size: 16px;
-  font-weight: bold;
+  font-weight: 600;
   margin-bottom: 8px;
+  color: ${Colors.black};
+  font-family: 'pretendard';
 `;
 
 const CardContent = styled.Text`
   font-size: 14px;
+  font-weight: 400;
   color: ${Colors.content};
   margin-right: 40px;
+  font-family: 'pretendard';
 `;

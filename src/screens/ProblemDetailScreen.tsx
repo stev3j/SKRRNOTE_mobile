@@ -12,16 +12,19 @@ import { ButtonContainer } from '../utils/ETCViews';
 import { createIdea, deleteProblem, getIdeas, getProblemById, updateProblem } from '../database/Functions';
 import { useSafeAreaFrame } from 'react-native-safe-area-context';
 import { ObjectId } from 'bson';
-import { Alert } from 'react-native';
+import { Alert, LogBox } from 'react-native';
 
 type ProblemDetailRouteProp = RouteProp<RootStackParamList, 'ProblemDetail'>;
 
 const ProblemDetailScreen = () => {
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
+
   const route = useRoute<ProblemDetailRouteProp>();
   const navigation = useNavigation<StackNavigationProp<RootStackParamList>>();
-
+  
   const { id } = route.params! ?? ''
-  // const stringId =  id.toHexString()
 
   const title = getProblemById(id)?.title || ''
   const description = getProblemById(id)?.description || ''
@@ -67,6 +70,10 @@ const ProblemDetailScreen = () => {
 
       <ButtonContainer>
         <Button icon={penIconSvg} text='새로운 아이디어' onPress={() => {
+
+          // myWORNING : BSON: For React Native please polyfill crypto.getRandomValues
+          // 
+
           createIdea('', '', id.toString());
           const lastIdea = getIdeas().slice(-1)[0];
           console.log('Created Idea:', lastIdea);

@@ -11,11 +11,15 @@ import { ButtonContainer } from '../utils/ETCViews';
 import RelatedProblemBox from '../components/problem/RelatedProblemBox';
 import { deleteIdea, getIdeaById, getProblemById, updateIdea } from '../database/Functions';
 import { ObjectId } from "bson";
-import { Alert } from 'react-native';
+import { Alert, LogBox } from 'react-native';
 
 type IdeaDetailScreenRouteProp = RouteProp<RootStackParamList, 'IdeaDetail'>;
 
 const IdeaDetailScreen = () => {
+  LogBox.ignoreLogs([
+    'Non-serializable values were found in the navigation state',
+  ]);
+
   const route = useRoute<IdeaDetailScreenRouteProp>();
   const { id } = route.params! ?? '';
 

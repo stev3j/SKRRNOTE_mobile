@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { ScrollView } from 'react-native';
+import { LogBox, ScrollView } from 'react-native';
 import styled from 'styled-components/native';
 import ProblemCard from '../components/problem/ProblemCard';
 import Button from '../components/Button';
@@ -34,7 +34,10 @@ const ProblemScreen = () => {
         <Button text='새로운 문제' icon={penIconSvg} marginBottom={34} onPress={() => {
           createProblem('', '') // 만들고
           const lastProblem = getProblems().slice(-1)[0]; // 만들어진 객체
-          navigation.navigate('ProblemDetail', {id: lastProblem._id as string}) // id 넘겨주기
+
+          // myWORNING : 직렬화 안 되는 값을 전달해서 경고가 뜸? but, string은 직렬화 되잖아?
+          const problemId = String(lastProblem._id); // Ensure _id is a string
+          navigation.navigate('ProblemDetail', { id: problemId }) // id 넘겨주기
         }} />
       </ButtonContainer>
     </Container>

@@ -32,7 +32,19 @@
 		<true/>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string/>
+	<string></string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>pretendard_black.ttf</string>
+		<string>pretendard_bold.ttf</string>
+		<string>pretendard_extraBold.ttf</string>
+		<string>pretendard_extraLight.ttf</string>
+		<string>pretendard_light.ttf</string>
+		<string>pretendard_medium.ttf</string>
+		<string>pretendard_regular.ttf</string>
+		<string>pretendard_semiBold.ttf</string>
+		<string>pretendard_thin.ttf</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -47,17 +59,5 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
-	<key>UIAppFonts</key>
-	<array>
-		<string>pretendard_black.ttf</string>
-		<string>pretendard_bold.ttf</string>
-		<string>pretendard_extraBold.ttf</string>
-		<string>pretendard_extraLight.ttf</string>
-		<string>pretendard_light.ttf</string>
-		<string>pretendard_medium.ttf</string>
-		<string>pretendard_regular.ttf</string>
-		<string>pretendard_semiBold.ttf</string>
-		<string>pretendard_thin.ttf</string>
-	</array>
 </dict>
 </plist>

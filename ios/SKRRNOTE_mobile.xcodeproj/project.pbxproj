@@ -9,21 +9,21 @@
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* SKRRNOTE_mobileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* SKRRNOTE_mobileTests.m */; };
 		0C80B921A6F3F58F76C31292 /* libPods-SKRRNOTE_mobile.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DCACB8F33CDC322A6C60F78 /* libPods-SKRRNOTE_mobile.a */; };
+		10DE5F49D8FA4063A886B521 /* pretendard_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1EE701447A9434BA9EF3928 /* pretendard_medium.ttf */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
+		44A7F7788CF740A8861340D2 /* pretendard_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94E404F6410C4C829E901C26 /* pretendard_thin.ttf */; };
 		57BF58F9BD157462C7A979A0 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 1DA542CD7958C01CE3F4D6BC /* PrivacyInfo.xcprivacy */; };
+		6A4FAF373B9C484AB0D86559 /* pretendard_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13F69AF82B444D29A7D67850 /* pretendard_bold.ttf */; };
+		6A623DB6BECD472DB051AAEB /* pretendard_extraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189FB543F0294BECA43AC5AF /* pretendard_extraLight.ttf */; };
 		7699B88040F8A987B510C191 /* libPods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		BC5143A8F1EE4887A650C6EE /* pretendard_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 852D327ED0AE4BAFACE094FC /* pretendard_black.ttf */; };
-		6A4FAF373B9C484AB0D86559 /* pretendard_bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13F69AF82B444D29A7D67850 /* pretendard_bold.ttf */; };
 		9CC30DD965F54A39829F97E2 /* pretendard_extraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F7CAF0FEE0814699ABF5E738 /* pretendard_extraBold.ttf */; };
-		6A623DB6BECD472DB051AAEB /* pretendard_extraLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 189FB543F0294BECA43AC5AF /* pretendard_extraLight.ttf */; };
+		BC5143A8F1EE4887A650C6EE /* pretendard_black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 852D327ED0AE4BAFACE094FC /* pretendard_black.ttf */; };
 		D4EBBAEC1D3F48CB817220C7 /* pretendard_light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F800E570CCEC4C5EA412C288 /* pretendard_light.ttf */; };
-		10DE5F49D8FA4063A886B521 /* pretendard_medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A1EE701447A9434BA9EF3928 /* pretendard_medium.ttf */; };
-		E0D28FBB7D7044AAA1210EED /* pretendard_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F7D7FD88A4F98A20F6DB1 /* pretendard_regular.ttf */; };
 		D69B944E4522468FB94579B2 /* pretendard_semiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 273FF709FAE9420A90D8035E /* pretendard_semiBold.ttf */; };
-		44A7F7788CF740A8861340D2 /* pretendard_thin.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 94E404F6410C4C829E901C26 /* pretendard_thin.ttf */; };
+		E0D28FBB7D7044AAA1210EED /* pretendard_regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 4A1F7D7FD88A4F98A20F6DB1 /* pretendard_regular.ttf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,24 +47,24 @@
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SKRRNOTE_mobile/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SKRRNOTE_mobile/main.m; sourceTree = "<group>"; };
 		13B07FB81A68108700A75B9A /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = PrivacyInfo.xcprivacy; path = SKRRNOTE_mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		13F69AF82B444D29A7D67850 /* pretendard_bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_bold.ttf; path = ../src/assets/fonts/pretendard_bold.ttf; sourceTree = "<group>"; };
+		189FB543F0294BECA43AC5AF /* pretendard_extraLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_extraLight.ttf; path = ../src/assets/fonts/pretendard_extraLight.ttf; sourceTree = "<group>"; };
 		19F6CBCC0A4E27FBF8BF4A61 /* libPods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		1DA542CD7958C01CE3F4D6BC /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xml; name = PrivacyInfo.xcprivacy; path = SKRRNOTE_mobile/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		273FF709FAE9420A90D8035E /* pretendard_semiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_semiBold.ttf; path = ../src/assets/fonts/pretendard_semiBold.ttf; sourceTree = "<group>"; };
 		3B4392A12AC88292D35C810B /* Pods-SKRRNOTE_mobile.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKRRNOTE_mobile.debug.xcconfig"; path = "Target Support Files/Pods-SKRRNOTE_mobile/Pods-SKRRNOTE_mobile.debug.xcconfig"; sourceTree = "<group>"; };
+		4A1F7D7FD88A4F98A20F6DB1 /* pretendard_regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_regular.ttf; path = ../src/assets/fonts/pretendard_regular.ttf; sourceTree = "<group>"; };
 		5709B34CF0A7D63546082F79 /* Pods-SKRRNOTE_mobile.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKRRNOTE_mobile.release.xcconfig"; path = "Target Support Files/Pods-SKRRNOTE_mobile/Pods-SKRRNOTE_mobile.release.xcconfig"; sourceTree = "<group>"; };
 		5B7EB9410499542E8C5724F5 /* Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.debug.xcconfig"; path = "Target Support Files/Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests/Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.debug.xcconfig"; sourceTree = "<group>"; };
 		5DCACB8F33CDC322A6C60F78 /* libPods-SKRRNOTE_mobile.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-SKRRNOTE_mobile.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = SKRRNOTE_mobile/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		852D327ED0AE4BAFACE094FC /* pretendard_black.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_black.ttf; path = ../src/assets/fonts/pretendard_black.ttf; sourceTree = "<group>"; };
 		89C6BE57DB24E9ADA2F236DE /* Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.release.xcconfig"; path = "Target Support Files/Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests/Pods-SKRRNOTE_mobile-SKRRNOTE_mobileTests.release.xcconfig"; sourceTree = "<group>"; };
+		94E404F6410C4C829E901C26 /* pretendard_thin.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_thin.ttf; path = ../src/assets/fonts/pretendard_thin.ttf; sourceTree = "<group>"; };
+		A1EE701447A9434BA9EF3928 /* pretendard_medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_medium.ttf; path = ../src/assets/fonts/pretendard_medium.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
-		852D327ED0AE4BAFACE094FC /* pretendard_black.ttf */ = {isa = PBXFileReference; name = "pretendard_black.ttf"; path = "../src/assets/fonts/pretendard_black.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		13F69AF82B444D29A7D67850 /* pretendard_bold.ttf */ = {isa = PBXFileReference; name = "pretendard_bold.ttf"; path = "../src/assets/fonts/pretendard_bold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F7CAF0FEE0814699ABF5E738 /* pretendard_extraBold.ttf */ = {isa = PBXFileReference; name = "pretendard_extraBold.ttf"; path = "../src/assets/fonts/pretendard_extraBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		189FB543F0294BECA43AC5AF /* pretendard_extraLight.ttf */ = {isa = PBXFileReference; name = "pretendard_extraLight.ttf"; path = "../src/assets/fonts/pretendard_extraLight.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		F800E570CCEC4C5EA412C288 /* pretendard_light.ttf */ = {isa = PBXFileReference; name = "pretendard_light.ttf"; path = "../src/assets/fonts/pretendard_light.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		A1EE701447A9434BA9EF3928 /* pretendard_medium.ttf */ = {isa = PBXFileReference; name = "pretendard_medium.ttf"; path = "../src/assets/fonts/pretendard_medium.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		4A1F7D7FD88A4F98A20F6DB1 /* pretendard_regular.ttf */ = {isa = PBXFileReference; name = "pretendard_regular.ttf"; path = "../src/assets/fonts/pretendard_regular.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		273FF709FAE9420A90D8035E /* pretendard_semiBold.ttf */ = {isa = PBXFileReference; name = "pretendard_semiBold.ttf"; path = "../src/assets/fonts/pretendard_semiBold.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
-		94E404F6410C4C829E901C26 /* pretendard_thin.ttf */ = {isa = PBXFileReference; name = "pretendard_thin.ttf"; path = "../src/assets/fonts/pretendard_thin.ttf"; sourceTree = "<group>"; fileEncoding = undefined; lastKnownFileType = unknown; explicitFileType = undefined; includeInIndex = 0; };
+		F7CAF0FEE0814699ABF5E738 /* pretendard_extraBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_extraBold.ttf; path = ../src/assets/fonts/pretendard_extraBold.ttf; sourceTree = "<group>"; };
+		F800E570CCEC4C5EA412C288 /* pretendard_light.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = pretendard_light.ttf; path = ../src/assets/fonts/pretendard_light.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -175,7 +175,6 @@
 				94E404F6410C4C829E901C26 /* pretendard_thin.ttf */,
 			);
 			name = Resources;
-			path = "";
 			sourceTree = "<group>";
 		};
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
@@ -517,6 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY2K7AXDK5;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SKRRNOTE_mobile/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SKRR NOTE";
@@ -530,7 +530,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brian.SKRRNOTE;
 				PRODUCT_NAME = SKRRNOTE_mobile;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
@@ -545,6 +545,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = TY2K7AXDK5;
 				INFOPLIST_FILE = SKRRNOTE_mobile/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = "SKRR NOTE";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -557,7 +558,7 @@
 					"-ObjC",
 					"-lc++",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = "org.reactjs.native.example.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.brian.SKRRNOTE;
 				PRODUCT_NAME = SKRRNOTE_mobile;
 				SWIFT_VERSION = 5.0;
 				VERSIONING_SYSTEM = "apple-generic";

@@ -19,7 +19,7 @@ const TabContainer = ({ selectedTab, setSelectedTab }: TabContainerProps) => {
         <TabText isSelected={selectedTab === '아이디어'}>아이디어</TabText>
       </Tab>
     </Container>
-  );
+  );   
 };
 
 export default TabContainer;
